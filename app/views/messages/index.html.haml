@@ -1,28 +1,6 @@
 .side-bar
-  .side-header
-    .header__left
-      ユーザー名
-    .header__right
-      %ul.lists
-        %li{class: "list list--edit--icon"}
-          %a
-            %i.fa.fa-edit
-        %li{class: "list list--gear--icon"}
-          %a
-            %i.fa.fa-cog
-  .groups
-    %a
-      .group
-        %p.group__group--name a_group
-        %p.group__new--message 新着メッセージ
-    %a
-      .group
-        %p.group__group--name b_group
-        %p.group__new--message 新着メッセージ
-    %a
-      .group
-        %p.group__group--name c_group
-        %p.group__new--message 新着メッセージ
+  
+  = render 'layouts/side_bar'
 
 .chat
   .chat-header
