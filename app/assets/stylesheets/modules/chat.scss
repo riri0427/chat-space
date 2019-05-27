@@ -27,14 +27,17 @@
         }
       }
     }
-    .right-header {
-      height: 40px;
-      line-height: 40px;
-      margin-top: 28px;
-      padding: 0 20px;
-      color: $light_blue;
-      border: solid 1px $light_blue;
-      cursor: pointer;
+    a {
+      text-decoration: none;
+      .right-header {
+        height: 40px;
+        line-height: 40px;
+        margin-top: 28px;
+        padding: 0 20px;
+        color: $light_blue;
+        border: solid 1px $light_blue;
+        cursor: pointer;
+      }
     }
   }
   .messages {

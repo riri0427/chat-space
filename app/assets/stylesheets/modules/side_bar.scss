@@ -18,6 +18,12 @@
       .lists {
         .list {
           display: inline-block;
+          .fa.fa-edit {
+            color: $white;
+          }
+          .fa.fa-cog {
+            color: $white;
+          }
         }
       }
     }
@@ -28,6 +34,7 @@
     padding: 20px 20px 0;
     overflow: scroll;
     a {
+      text-decoration: none;
       .group {
         margin-bottom: 40px;
         color: $white;
