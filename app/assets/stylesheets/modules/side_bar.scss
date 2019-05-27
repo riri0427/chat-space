@@ -1,9 +1,9 @@
 .side-bar {
-  background: #253141;
   width: 300px;
   float: left;
   .side-header {
-    color: #fff;
+    background: #253141;
+    color: $white;
     height: 100px;
     padding: 0 20px 0 20px;
     .header__left {
@@ -30,14 +30,14 @@
     a {
       .group {
         margin-bottom: 40px;
-        color: #fff;
+        color: $white;
         font-weight: bold;
         cursor: pointer;
-        .group__group--name {
+        &__group--name {
           padding-bottom: 5px;
           font-size: 15px;
         }
-        .group__new--message {
+        &__new--message {
           font-size: 11px;
         }
       }
