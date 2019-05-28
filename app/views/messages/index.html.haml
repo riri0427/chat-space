@@ -1,0 +1,46 @@
+.side-bar
+  
+  = render 'layouts/side_bar'
+
+.chat
+  .chat-header
+    .left-header
+      .current-group 
+        グループ名
+      %ul.member-list
+        Member :
+        %li.member
+          メンバー名
+        %li.member
+          メンバー名
+        %li.member
+          メンバー名
+    = link_to "#" do
+      .right-header
+        Edit
+  .messages
+    .message
+      .upper-info
+        %p.upper-info__user ユーザー名
+        %p.upper-info__date 2019/05/27(Mon) 13:47
+      %p.message__text メッセージ
+    .message
+      .upper-info
+        %p.upper-info__user ユーザー名
+        %p.upper-info__date 2019/05/27(Mon) 13:47
+      %p.message__text メッセージ
+    .message
+      .upper-info
+        %p.upper-info__user ユーザー名
+        %p.upper-info__date 2019/05/27(Mon) 13:47
+      %p.message__text メッセージ
+  .form
+    %form.new-message
+      .form-message
+        %input.form-message__text{placeholder: "type a message"}
+        .file-upload
+          %label.file-relation{for: "file-upload__select"}
+            %i.fa.fa-image
+            %input{id: "file-upload__select", type: "file", class: "hidden"}
+      .form-btn
+        %input.form-btn__btn{type: "submit", value: "Send"}

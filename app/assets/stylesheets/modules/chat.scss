@@ -1,0 +1,119 @@
+.chat {
+  background: #fafafa;
+  height: 100vh;
+  width: calc(100vw - 300px);
+  float: right;
+  .chat-header {
+    height: 100px;
+    padding: 0 40px;
+    border-bottom: solid 1px #eee;
+    display: flex;
+    justify-content: space-between;
+    .left-header {
+      box-sizing: border-box;
+      margin-top: 35px;
+      float: left;
+      .current-group {
+        font-size: 20px;
+        color: #333;
+      }
+      .member-list {
+        display: inline-block;
+        font-size: 12px;
+        color: #999;
+        .member {
+          display: inline-block;
+          margin-top: 15px;
+        }
+      }
+    }
+    a {
+      text-decoration: none;
+      .right-header {
+        height: 40px;
+        line-height: 40px;
+        margin-top: 28px;
+        padding: 0 20px;
+        color: $light_blue;
+        border: solid 1px $light_blue;
+        cursor: pointer;
+      }
+    }
+  }
+  .messages {
+    padding-top: 46px;
+    height: calc(100vh - 190px);
+    overflow: scroll;
+    .message {
+      color: #434a54;
+      margin-left: 40px;
+      margin-bottom: 40px;
+      .upper-info {
+        display: flex;
+        &__user {
+          font-size: 16px;
+          font-weight: bold;
+        }
+        &__date {
+          color: #999;
+          font-size: 12px;
+          margin-left: 10px;
+        }
+      }
+      &__text {
+        margin-top: 10px;
+        font-size: 14px;
+      }
+    }
+  }
+  
+  .form {
+    background: #ddd;
+    height: 90px;
+    padding: 0 40px;
+    display: flex;
+    .new-message {
+      display: flex;
+      width: 100%;
+      .form-message {
+        line-height: 90px;
+        width: 100%;
+        position: relative;
+        &__text {
+          height: 50px;
+          width: 100%;
+          border-style: none;
+          padding-left: 10px;
+          
+        }
+        .file-upload {
+          position: absolute;
+          right: 10px;
+          bottom: 0;
+          top: 2px;
+          .file-relation {
+            .fa.fa-image {
+              font-size: 21px;
+              line-height: 50px;
+              cursor: pointer;
+            }
+            .hidden {
+              display: none;
+            }
+          }
+        }
+      }
+      .form-btn {
+        line-height: 90px;
+        &__btn {
+          background-color: $light_blue;
+          color: $white;
+          height: 50px;
+          width: 100px;
+          margin-left: 15px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

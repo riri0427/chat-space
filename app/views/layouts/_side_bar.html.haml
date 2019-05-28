@@ -1,0 +1,24 @@
+.side-header
+  .header__left
+    ユーザー名
+  .header__right
+    %ul.lists
+      %li{class: "list list--edit--icon"}
+        = link_to "#" do
+          %i.fa.fa-edit
+      %li{class: "list list--gear--icon"}
+        = link_to "#" do
+          %i.fa.fa-cog
+.groups
+  = link_to "#" do
+    .group
+      %p.group__group--name a_group
+      %p.group__new--message 新着メッセージ
+  = link_to "#" do
+    .group
+      %p.group__group--name b_group
+      %p.group__new--message 新着メッセージ
+  = link_to "#" do
+    .group
+      %p.group__group--name c_group
+      %p.group__new--message 新着メッセージ

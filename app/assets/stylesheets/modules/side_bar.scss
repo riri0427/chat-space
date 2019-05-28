@@ -1,0 +1,53 @@
+.side-bar {
+  width: 300px;
+  float: left;
+  .side-header {
+    background: #253141;
+    color: $white;
+    height: 100px;
+    padding: 0 20px 0 20px;
+    .header__left {
+      float: left;
+      line-height: 100px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .header__right {
+      float: right;
+      line-height: 100px;
+      .lists {
+        .list {
+          display: inline-block;
+          .fa.fa-edit {
+            color: $white;
+          }
+          .fa.fa-cog {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+  .groups{
+    background: #2f3e51;
+    height: calc(100vh - 100px);
+    padding: 20px 20px 0;
+    overflow: scroll;
+    a {
+      text-decoration: none;
+      .group {
+        margin-bottom: 40px;
+        color: $white;
+        font-weight: bold;
+        cursor: pointer;
+        &__group--name {
+          padding-bottom: 5px;
+          font-size: 15px;
+        }
+        &__new--message {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}
