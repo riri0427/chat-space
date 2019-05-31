@@ -17,6 +17,11 @@ class GroupsController < ApplicationController
   end
 
   def update
+    if @group.update(group_params)
+      redirect_to root_path, notice: 'グループを編集しました'
+    else
+      render :new
+    end
   end
 
   private
