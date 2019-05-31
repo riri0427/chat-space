@@ -10,15 +10,10 @@
         = link_to edit_user_path(current_user) do
           %i.fa.fa-cog
 .groups
-  = link_to "#" do
+  - current_user.groups.each do |group|
     .group
-      %p.group__group--name a_group
-      %p.group__new--message 新着メッセージ
-  = link_to "#" do
-    .group
-      %p.group__group--name b_group
-      %p.group__new--message 新着メッセージ
-  = link_to "#" do
-    .group
-      %p.group__group--name c_group
-      %p.group__new--message 新着メッセージ
+      = link_to group_messages_path(group) do
+        .group__group--name
+          = group.name
+        .group__new--message 
+          メッセージはまだありません
