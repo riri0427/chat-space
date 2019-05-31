@@ -33,21 +33,22 @@
     height: calc(100vh - 100px);
     padding: 20px 20px 0;
     overflow: scroll;
-    a {
-      text-decoration: none;
       .group {
         margin-bottom: 40px;
         color: $white;
         font-weight: bold;
         cursor: pointer;
-        &__group--name {
-          padding-bottom: 5px;
-          font-size: 15px;
-        }
-        &__new--message {
-          font-size: 11px;
+        a {
+          color: $white;
+          text-decoration: none;
+          .group__group--name {
+            padding-bottom: 5px;
+            font-size: 15px;
+          }
+          .group__new--message {
+            font-size: 11px;
+          }
         }
       }
-    }
   }
 }
