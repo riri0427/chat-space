@@ -6,16 +6,13 @@
   .chat-header
     .left-header
       .current-group 
-        グループ名
+        = @group.name
       %ul.member-list
         Member :
-        %li.member
-          メンバー名
-        %li.member
-          メンバー名
-        %li.member
-          メンバー名
-    = link_to "#" do
+        - @group.users.each do |user|
+          %li.member
+            = user.name
+    = link_to edit_group_path(@group.id) do
       .right-header
         Edit
   .messages
