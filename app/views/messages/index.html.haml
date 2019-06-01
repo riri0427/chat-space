@@ -9,13 +9,9 @@
         = @group.name
       %ul.member-list
         Member :
-        %li.member
-          メンバー名
-        %li.member
-          メンバー名
-        %li.member
-          メンバー名
-    = link_to "#" do
+        - @group.users.each do |user|
+          %li.member
+            = user.name
       .right-header
         Edit
   .messages
