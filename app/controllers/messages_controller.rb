@@ -1,4 +1,6 @@
 class MessagesController < ApplicationController
+  before_action :set_group, only: [:index, :create]
+
   def index
     @message = Message.new
     @group = Group.find(params[:group_id])
