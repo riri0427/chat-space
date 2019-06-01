@@ -19,21 +19,7 @@
       .right-header
         Edit
   .messages
-    .message
-      .upper-info
-        %p.upper-info__user ユーザー名
-        %p.upper-info__date 2019/05/27(Mon) 13:47
-      %p.message__text メッセージ
-    .message
-      .upper-info
-        %p.upper-info__user ユーザー名
-        %p.upper-info__date 2019/05/27(Mon) 13:47
-      %p.message__text メッセージ
-    .message
-      .upper-info
-        %p.upper-info__user ユーザー名
-        %p.upper-info__date 2019/05/27(Mon) 13:47
-      %p.message__text メッセージ
+    =render @messages
   .form
     = form_for [@group, @message], :url => {action: :create}, :html => {class: "new-message"} do |f|
       .form-message
