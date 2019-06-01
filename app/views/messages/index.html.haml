@@ -35,12 +35,12 @@
         %p.upper-info__date 2019/05/27(Mon) 13:47
       %p.message__text メッセージ
   .form
-    %form.new-message
+    = form_for [@group, @message], :url => {action: :create}, :html => {class: "new-message"} do |f|
       .form-message
-        %input.form-message__text{placeholder: "type a message"}
+        = f.text_field :content, class: "form-message__text", placeholder: "type a message"
         .file-upload
-          %label.file-relation{for: "file-upload__select"}
-            %i.fa.fa-image
-            %input{id: "file-upload__select", type: "file", class: "hidden"}
+          = f.label :image, class: "file-relation", for: "file-image" do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, id: "file-image", class: "hidden"
       .form-btn
-        %input.form-btn__btn{type: "submit", value: "Send"}
+        = f.submit 'Send', class: "form-btn__btn"
