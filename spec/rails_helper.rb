@@ -31,9 +31,13 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+  config.include FactoryBot::Syntax::Methods
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include ControllerMacros, type: :controller
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
-
+  
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
@@ -53,16 +57,16 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
-
+  
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 
-  config.include FactoryBot::Syntax::Methods
-
-  Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-  config.include Devise::Test::ControllerHelpers, type: :controller
-  config.include ControllerMacros, type: :controller
-
+  
+  
+  
 end
+
+# require 'devise'
+# require File.expand_path("spec/support/controller_macros.rb")
