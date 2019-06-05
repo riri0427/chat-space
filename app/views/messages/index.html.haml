@@ -18,7 +18,7 @@
   .messages
     =render @messages
   .form
-    = form_for [@group, @message], :url => {action: :create}, :html => {class: "new-message"} do |f|
+    = form_for [@group, @message], :url => {action: :create}, :html => {class: "new-message"}, id: "new-message" do |f|
       .form-message
         = f.text_field :content, class: "form-message__text", placeholder: "type a message"
         .file-upload
