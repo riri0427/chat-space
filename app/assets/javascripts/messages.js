@@ -50,6 +50,8 @@ $(function() {
       $('.messages').append(html)
       $('#message_content').val('');
       $('#file-image').val('');
+      scrollBottom();
+    })
     .fail(function(){
       alert('メッセージの送信に失敗しました');
     })
