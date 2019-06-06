@@ -46,5 +46,8 @@ $(function() {
     .fail(function(){
       alert('メッセージの送信に失敗しました');
     })
+    .always(function(data){
+      $('.form-btn__btn').prop('disabled', false);
+    })
   })
 });
