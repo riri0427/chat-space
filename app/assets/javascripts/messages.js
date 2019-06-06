@@ -43,5 +43,8 @@ $(function() {
       $('.messages').append(html)
       $('#message_content').val('');
       $('#file-image').val('');
+    .fail(function(){
+      alert('メッセージの送信に失敗しました');
+    })
   })
 });
