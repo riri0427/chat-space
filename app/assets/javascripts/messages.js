@@ -48,8 +48,7 @@ $(function() {
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html)
-      $('#message_content').val('');
-      $('#file-image').val('');
+      $('.new-message')[0].reset();
       scrollBottom();
     })
     .fail(function(){
