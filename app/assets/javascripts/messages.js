@@ -26,6 +26,13 @@ $(function() {
       return html;
     }
   }
+
+  function scrollBottom(){
+    var target = $('.message').last();
+    var position = target.offset().top + $('.messages').scrollTop();  // スクロール分座標がずれてしまうのを防ぐ
+    $('.messages').animate({scrollTop:position}, 300, 'swing');
+  }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
