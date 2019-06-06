@@ -38,5 +38,10 @@ $(function() {
       processData: false,
       contentType: false
     })
+    .done(function(data){
+      var html = buildHTML(data);
+      $('.messages').append(html)
+      $('#message_content').val('');
+      $('#file-image').val('');
   })
 });
