@@ -30,36 +30,12 @@ $(function() {
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
     var href = window.location.href
-
+    
     $.ajax({
       type: 'GET',
       url: href,
       data: { keyword: input },
       dataType: 'json'
     })
-    .done(function(users) {
-      $(".with-add-btn").remove();  // 文字が入力されるたびに表示されている名前を一度リセットする
-      if (users.length !== 0) {
-        users.forEach(function(user){
-          appendUser(user);
-          if (input == "") {
-            $(".with-add-btn").remove();  // フォームが空になった時に名前を表示しないようにする
-          }
-          $(".user-search-add").off('click')  // clickイベントが2回実行されてしまうのを防ぐ
-          $(".user-search-add").on('click', function(){
-            appendGroupMember(this);
-            $(this).parent().remove();
-          });
-          $("#group-member-list").on('click', '.user-search-remove', function(){
-              $(this).parent().remove();
-          });
-        });
-      } else {
-        appendErrMsgToHTML("一致するユーザーはいません");
-      }
-    })
-    .fail(function() {
-      alert('ユーザー検索に失敗しました');
-    });
   });
 });
