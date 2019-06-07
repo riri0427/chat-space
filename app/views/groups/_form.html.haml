@@ -22,7 +22,7 @@
       %label.chat-group-form__label{for: "members"} チャットメンバー
     .chat-group-form__field--right
       #group-member-list
-        - group.users.order('id ASC').each do |user|
+        - group.users.each do |user|
           #chat-group-user-8.chat-group-user.clearfix.js-chat-member
             %p.chat-group-user__name= user[:name]
             - unless user[:id] == current_user.id
