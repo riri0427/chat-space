@@ -58,4 +58,23 @@ $(function() {
       $('.form-btn__btn').prop('disabled', false);
     })
   })
+
+  var reloadMessages = function() {
+    last_message_id = $('.message').last().data('id');
+    group_id = $('.current_group_id').val();
+    href = '/groups/' + group_id + '/api' + '/messages'
+    $.ajax({
+      url: href,
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      console.log('success');
+    })
+    .fail(function() {
+      console.log('error');
+    })
+  }
+  reloadMessages();
 });
