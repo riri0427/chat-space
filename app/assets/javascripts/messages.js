@@ -1,6 +1,6 @@
 $(function() {
-  function buildHTML(message){
-    var html = `<div class="message">
+  var buildHTML = function(message) {
+    var html = `<div class="message" data-id="${message.id}">
                   <div class="upper-info">
                     <p class="upper-info__user">
                       ${message.name}
