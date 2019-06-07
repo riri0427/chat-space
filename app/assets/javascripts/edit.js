@@ -23,6 +23,9 @@ $(function() {
     $("#user-search-result").append(html);
   }
 
+  $('.user-search-remove').on('click', function(){
+    $(this).parent().remove();
+  });
 
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
