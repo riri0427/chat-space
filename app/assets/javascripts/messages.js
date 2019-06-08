@@ -91,8 +91,9 @@ $(function() {
       console.log('success');
     })
     .fail(function() {
-      console.log('error');
-    })
+      alert('自動更新に失敗しました');
+    });
+  }
   if ($('.current-group').length == 1) {
     setInterval(reloadMessages, 5000);
   }
