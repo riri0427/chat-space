@@ -88,7 +88,6 @@ $(function() {
           scrollBottom(target);
         }
       }
-      console.log('success');
     })
     .fail(function() {
       alert('自動更新に失敗しました');
