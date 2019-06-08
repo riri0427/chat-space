@@ -70,6 +70,23 @@ $(function() {
       data: {id: last_message_id}
     })
     .done(function(messages) {
+      if (messages.length != 0) {
+        var insertHTML = '';
+        messages.forEach(function(message) {
+          if (message == messages[0]) {
+            newMessagesTop = message.id;
+            insertHTML = buildHTML(message);
+            $('.messages').append(insertHTML);
+          } else {
+            insertHTML = buildHTML(message);
+            $('.messages').append(insertHTML);
+          }
+        });
+        var target = $("[data-id =" + newMessagesTop + "]");
+        if (target.length == 1){
+          scrollBottom(target);
+        }
+      }
       console.log('success');
     })
     .fail(function() {
