@@ -93,6 +93,7 @@ $(function() {
     .fail(function() {
       console.log('error');
     })
+  if ($('.current-group').length == 1) {
+    setInterval(reloadMessages, 5000);
   }
-  reloadMessages();
 });
