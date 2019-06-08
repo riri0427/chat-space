@@ -27,8 +27,7 @@ $(function() {
     }
   }
 
-  function scrollBottom(){
-    var target = $('.message').last();
+  function scrollBottom(target){
     var position = target.offset().top + $('.messages').scrollTop();  // スクロール分座標がずれてしまうのを防ぐ
     $('.messages').animate({scrollTop:position}, 300, 'swing');
   }
@@ -49,7 +48,8 @@ $(function() {
       var html = buildHTML(data);
       $('.messages').append(html)
       $('.new-message')[0].reset();
-      scrollBottom();
+      var target = $('.message').last();
+      scrollBottom(target);
     })
     .fail(function(){
       alert('メッセージの送信に失敗しました');
@@ -63,6 +63,7 @@ $(function() {
     last_message_id = $('.message').last().data('id');
     group_id = $('.current_group_id').val();
     href = '/groups/' + group_id + '/api' + '/messages'
+
     $.ajax({
       url: href,
       type: 'get',
