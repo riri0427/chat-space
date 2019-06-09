@@ -1,6 +1,6 @@
 $(function() {
-  function buildHTML(message){
-    var html = `<div class="message">
+  var buildHTML = function(message) {
+    var html = `<div class="message" data-id="${message.id}">
                   <div class="upper-info">
                     <p class="upper-info__user">
                       ${message.name}
@@ -27,8 +27,7 @@ $(function() {
     }
   }
 
-  function scrollBottom(){
-    var target = $('.message').last();
+  function scrollBottom(target){
     var position = target.offset().top + $('.messages').scrollTop();  // スクロール分座標がずれてしまうのを防ぐ
     $('.messages').animate({scrollTop:position}, 300, 'swing');
   }
@@ -49,7 +48,8 @@ $(function() {
       var html = buildHTML(data);
       $('.messages').append(html)
       $('.new-message')[0].reset();
-      scrollBottom();
+      var target = $('.message').last();
+      scrollBottom(target);
     })
     .fail(function(){
       alert('メッセージの送信に失敗しました');
@@ -58,4 +58,42 @@ $(function() {
       $('.form-btn__btn').prop('disabled', false);
     })
   })
+
+  var reloadMessages = function() {
+    last_message_id = $('.message').last().data('id');
+    group_id = $('.current_group_id').val();
+    href = '/groups/' + group_id + '/api' + '/messages'
+
+    $.ajax({
+      url: href,
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      if (messages.length != 0) {
+        var insertHTML = '';
+        messages.forEach(function(message) {
+          if (message == messages[0]) {
+            newMessagesTop = message.id;
+            insertHTML = buildHTML(message);
+            $('.messages').append(insertHTML);
+          } else {
+            insertHTML = buildHTML(message);
+            $('.messages').append(insertHTML);
+          }
+        });
+        var target = $("[data-id =" + newMessagesTop + "]");
+        if (target.length == 1){
+          scrollBottom(target);
+        }
+      }
+    })
+    .fail(function() {
+      alert('自動更新に失敗しました');
+    });
+  }
+  if ($('.current-group').length == 1) {
+    setInterval(reloadMessages, 5000);
+  }
 });

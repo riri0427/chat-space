@@ -27,3 +27,6 @@
             = f.file_field :image, id: "file-image", class: "hidden"
       .form-btn
         = f.submit 'Send', class: "form-btn__btn"
+
+%input.current_group_id{name: "current_group_id", type: "hidden", value: @group.id}
+-# ↑ groupのidをjsファイルで取得するために記載
