@@ -60,7 +60,11 @@ $(function() {
   })
 
   var reloadMessages = function() {
-    last_message_id = $('.message').last().data('id');
+    if ($('.message').length == 0) {
+      last_message_id = 1;
+    } else {
+      last_message_id = $('.message').last().data('id');
+    }
     group_id = $('.current_group_id').val();
     href = '/groups/' + group_id + '/api' + '/messages'
 
@@ -88,6 +92,7 @@ $(function() {
           scrollBottom(target);
         }
       }
+      console.log('success');
     })
     .fail(function() {
       alert('自動更新に失敗しました');
