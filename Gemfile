@@ -63,3 +63,7 @@ gem 'font-awesome-rails'
 gem 'devise'
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
